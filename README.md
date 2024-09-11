@@ -9,9 +9,11 @@ The website for Macon Code, developed by volunteers of Macon Code to share infor
 
 ## Table of Contents <!-- omit in toc -->
 - [Building](#building)
-	- [Virtual environment](#virtual-environment)
-	- [Development server](#development-server)
+  - [Virtual environment](#virtual-environment)
+  - [Development server](#development-server)
+  - [Using Docker](#using-docker)
 - [Contributing](#contributing)
+- [Deployment](#deployment)
 - [License](#license)
 
 ## Building
@@ -52,6 +54,42 @@ Start the development server by running:
 $ python manage.py runserver
 ```
 
+### Using Docker
+
+For live development and easy setup, you can use Docker to containerize the application.
+
+#### Docker Compose
+
+You can use Docker Compose for easier management of the development environment. The repository includes a `docker-compose.yml` file and a `Dockerfile` to help you quickly set up the development environment in a containerized environment.
+
+- **Quick Setup**: Docker Compose allows you to build and manage the entire development environment with a single command. This ensures that everyone on the team is working with the same setup, reducing the likelihood of environment-related issues.
+
+- **Live Development**: By mounting your code into the Docker container as a volume, any changes you make to the code on your host machine are immediately reflected inside the container. This is perfect for live development where you need to see changes without restarting the server.
+
+- **Port Mapping**: The application will be accessible on `http://localhost:8000` by default, making it easy to test and develop locally.
+
+- **Easy Cleanup**: When you're done, you can easily stop and remove the containers with a single command, ensuring your local environment remains clean.
+
+#### Running the Development Server with Docker
+
+1. **Build the Docker Image**:
+   ```
+   $ docker-compose build
+   ```
+
+2. **Start the Development Server**:
+   ```
+   $ docker-compose up
+   ```
+
+   This will start the development server, and you can access the website at `http://localhost:8000`.
+
+3. **Stopping the Server**:
+   ```
+   $ docker-compose down
+   ```
+
+This setup helps streamline the development process, allowing contributors to focus on coding rather than environment configuration.
 
 ## Contributing
 1. Fork the repository
@@ -72,9 +110,8 @@ $ python manage.py runserver
 When contributing, only include the project files - do not include the virtual environment. 
 
 ## Deployment
-Deployment is handled by members of Macon Code. We are running on Google Cloud. If you are comfortable with server side development, or want to learn more get involved! 
-
+Deployment is handled by members of Macon Code. We are running on Google Cloud. If you are comfortable with server-side development, or want to learn more, get involved!
 
 ## License
 
-All rights reserved. 
+All rights reserved.
